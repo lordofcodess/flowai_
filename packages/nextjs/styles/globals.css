@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* Flow Design System - ENS-inspired AI & Web3 Aesthetic */
+
+@layer base {
+  :root,
+  .light {
+    /* Core ENS-inspired theme */
+    --background: 250 100% 98%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* ENS Blue palette */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 217 91% 70%;
+    --primary-deep: 217 91% 50%;
+
+    /* AI Assistant pastels */
+    --secondary: 260 60% 95%;
+    --secondary-foreground: 220 15% 15%;
+
+    --muted: 220 30% 96%;
+    --muted-foreground: 220 15% 50%;
+
+    --accent: 280 100% 95%;
+    --accent-foreground: 280 100% 30%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 90%;
+    --input: 220 30% 95%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* ENS Gradients & Effects */
+    --gradient-ens: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-ai: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+    
+    /* Shadows & Glows */
+    --shadow-ens: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* ChatGPT-style neutral dark theme - gray-300 level */
+    --background: 0 0% 12%;
+    --foreground: 0 0% 85%;
+
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 85%;
+
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 85%;
+
+    --primary: 0 0% 85%;
+    --primary-foreground: 0 0% 15%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 85%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 85%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 85%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 70%;
+    
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 0 0% 85%;
+    --sidebar-primary-foreground: 0 0% 15%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 0 0% 25%;
+    --sidebar-ring: 0 0% 70%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* ENS Gradient Utilities */
+  .gradient-ens {
+    background: var(--gradient-ens);
+  }
+  
+  .gradient-ai {
+    background: var(--gradient-ai);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  /* ENS Shadow Utilities */
+  .shadow-ens {
+    box-shadow: var(--shadow-ens);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  /* ENS Agent Card */
+  .agent-card {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .agent-card:hover {
+    box-shadow: var(--shadow-ens);
+    transform: scale(1.02);
+  }
+  
+  /* AI Chat Bubble */
+  .chat-bubble {
+    border-radius: 1rem;
+    padding: 0.75rem 1rem;
+    max-width: 20rem;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+  
+  .chat-bubble-user {
+    background: var(--gradient-ens);
+    color: hsl(var(--primary-foreground));
+    margin-left: auto;
+  }
+  
+  .chat-bubble-ai {
+    background-color: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: var(--shadow-card); }
+  to { box-shadow: var(--shadow-glow); }
+}
